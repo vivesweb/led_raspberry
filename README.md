@@ -54,9 +54,9 @@ Without file handles:
 
 With file handles:
 
-         $fpUnexport = fopen( '/sys/class/gpio/unexport', 'w' ); // With file handles
+         $fpUnexport = fopen( '/sys/class/gpio/unexport', 'w' );
          $fpExport   = fopen( '/sys/class/gpio/export', 'w' );
-         $Led18      = new Led( '18', $fpUnexport, $fpExport);
+         $Led18      = new Led( '18', $fpUnexport, $fpExport); // With file handles
 
  
  **Of course. You can use it freely :vulcan_salute::alien:**
