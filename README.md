@@ -45,8 +45,10 @@ We can access GPIO ports directly with fwrite() for power on|off leds, without u
  
 # RESUME OF METHODS:
 
-- **CREATE LED:**
-- You can pass $fpUnexport & $fpExport file handles if you have more than 1 led. In this way, only 1 open file has done for Export and Unexport. If not params given, every led will open and close individually a export and unexport.
+
+**CREATE LED ON GPIO PORT 'X':**
+
+- You can pass $fpUnexport & $fpExport file handles if you have more than 1 led. In this way, only 1 file will be openned for Export and Unexport. If not params given, every led will open and close individually files for export and unexport. With $fpUnexport & $fpExport params yo will get a better performance.
 
 Without file handles:
 
@@ -57,6 +59,24 @@ With file handles:
          $fpUnexport = fopen( '/sys/class/gpio/unexport', 'w' );
          $fpExport   = fopen( '/sys/class/gpio/export', 'w' );
          $Led18      = new Led( '18', $fpUnexport, $fpExport); // With file handles
+         
+         // Remember close files at the end of your code
+         fclose( $fpUnexport );
+         fclose( $fpExport );
+
+**Power ON led:**
+
+         $Led18->On();
+ 
+ 
+**Power OFF led:**
+
+         $Led18->Off();
+ 
+ 
+**Unexport GPIO PORT:**
+
+         $Led18->unexport();
 
  
  **Of course. You can use it freely :vulcan_salute::alien:**
