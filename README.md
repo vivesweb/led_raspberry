@@ -31,15 +31,15 @@ We can access GPIO ports directly with fwrite() for power on|off leds, without u
         $Led18 = new Led( '18' );
  
  
- - Power ON led 18:
+ - Power ON GPIO led 18:
 
         $Led18->On();
         
- - Power OFF led 18:
+ - Power OFF GPIO led 18:
 
         $Led18->Off();
  
- - Unexport GPIO 18:
+ - Unexport GPIO port 18:
 
         $Led18->unexport();
  
@@ -58,6 +58,7 @@ With file handles:
 
          $fpUnexport = fopen( '/sys/class/gpio/unexport', 'w' );
          $fpExport   = fopen( '/sys/class/gpio/export', 'w' );
+         
          $Led18      = new Led( '18', $fpUnexport, $fpExport); // With file handles
          
          // Remember close files at the end of your code
