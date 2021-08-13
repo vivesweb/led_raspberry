@@ -57,7 +57,7 @@ Without file handles:
          // Here your code using power on off on leds as you want
          // ......
          
-         // Remember do Unexport & close files at the end of your code
+         // Remember do Unexport at the end of your code
          $Led18->unexport();
 
 With file handles:
