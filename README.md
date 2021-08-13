@@ -61,7 +61,9 @@ With file handles:
          
          $Led18      = new Led( '18', $fpUnexport, $fpExport); // With file handles
          
-         // Remember close files at the end of your code
+         // Remember do Unexport & close files at the end of your code
+         $Led18->unexport();
+         
          fclose( $fpUnexport );
          fclose( $fpExport );
 
