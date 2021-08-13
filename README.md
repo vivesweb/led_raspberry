@@ -53,6 +53,12 @@ We can access GPIO ports directly with fwrite() for power on|off leds, without u
 Without file handles:
 
          $Led18 = new Led( '18' ); // Without file handles
+         
+         // Here your code using power on off on leds as you want
+         // ......
+         
+         // Remember do Unexport & close files at the end of your code
+         $Led18->unexport();
 
 With file handles:
 
@@ -60,6 +66,9 @@ With file handles:
          $fpExport   = fopen( '/sys/class/gpio/export', 'w' );
          
          $Led18      = new Led( '18', $fpUnexport, $fpExport); // With file handles
+         
+         // Here your code using power on off on leds as you want
+         // ......
          
          // Remember do Unexport & close files at the end of your code
          $Led18->unexport();
