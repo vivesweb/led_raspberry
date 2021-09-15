@@ -90,6 +90,26 @@ With file handles:
 
          $Led18->unexport();
 
+# Example
+
+         <?php
+         require_once( 'led.class.php' );
+         
+         // Create the variable with led class on GPIO 18:
+         $Led18 = new Led( '18' );
+         
+         // Power ON GPIO led 18:
+         $Led18->On();
+         
+         // Wait 5 seconds
+         sleep(5);
+         
+         //Power OFF GPIO led 18:
+         $Led18->Off();
+         
+         //Unexport GPIO port 18:
+         $Led18->unexport();
+         ?>
  
  **Of course. You can use it freely :vulcan_salute::alien:**
  
